@@ -41,10 +41,10 @@ var vertices = [
 
 // Different colors for a tetrahedron (RGBA)
 var baseColors = [
-    vec4(1.0, 0.2, 0.4, 1.0),
-    vec4(0.0, 0.9, 1.0, 1.0),
-    vec4(0.2, 0.2, 0.5, 1.0),
-    vec4(0.0, 0.0, 0.0, 1.0)
+    vec4(1.0, 0.0, 0.25, 1.0), //#ff0040
+    vec4(0.0, 0.9, 1.0, 1.0),  //#00e5ff
+    vec4(0.2, 0.2, 0.8, 1.0),  //#3333ff
+    vec4(0.0, 0.0, 0.0, 1.0)   //#000000
 ];
 
 // Define texture coordinates for texture mapping onto a shape or surface
@@ -145,7 +145,38 @@ function configUIElements()
         resetValue();
         animUpdate();
 	};
+	
+	// color picker functionality
+	
+	document.getElementById("color1").addEventListener("input", (e) => {
+        baseColors[0] = hexToRGBA(e.target.value);
+        recompute();
+        });
+	document.getElementById("color2").addEventListener("input", (e) => {
+        baseColors[1] = hexToRGBA(e.target.value);
+        recompute();
+        });
+	document.getElementById("color3").addEventListener("input", (e) => {
+        baseColors[2] = hexToRGBA(e.target.value);
+        recompute();
+        });
+	 document.getElementById("color4").addEventListener("input", (e) => {
+        baseColors[3] = hexToRGBA(e.target.value);
+        recompute();
+        });
+	// Convert hex color to vec4 RGBA format
+    function hexToRGBA(hex) {
+        const bigint = parseInt(hex.slice(1), 16);
+        const r = (bigint >> 16) & 255;
+        const g = (bigint >> 8) & 255;
+        const b = bigint & 255;
+        return vec4(r / 255, g / 255, b / 255, 1.0);
+        }
 }
+
+
+
+
 
 // Configure WebGL Settings
 function configWebGL()
@@ -403,18 +434,18 @@ function configureTexture(tex)
 /*-----------------------------------------------------------------------------------*/
 
 // Form a triangle
-function triangle(a, b, c, color)
-{
-    colors.push(baseColors[color]);
+function triangle(a, b, c, color) {
+    colors.push(baseColors[color]); 
     points.push(a);
     textures.push(texCoord[0]);
+
     colors.push(baseColors[color]);
     points.push(b);
     textures.push(texCoord[1]);
+
     colors.push(baseColors[color]);
     points.push(c);
     textures.push(texCoord[2]);
-    console.log(points);
 }
 
 // Form a tetrahedron with different color for each side
