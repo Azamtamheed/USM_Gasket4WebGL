@@ -91,32 +91,29 @@
 			</div>
 		</div>
 
-		<!-- Checkbox for texture -->
-		<div class="param-panel horizontal-align mg-top-bottom">
-			<div class="checkText">Enable Texture 1</div>
-			<input class="checkRadio" id ="check-texture-1" type="radio" name = "radio" checked>
-		</div>
-
-		<div class="param-panel horizontal-align mg-top-bottom">
-			<div class="checkText">Enable Texture 2</div>
-			<input class="checkRadio" id ="check-texture-2" type="radio" name = "radio">
-		</div>
-
-		<div class="param-panel horizontal-align mg-top-bottom">
-			<div class="checkText">Enable Texture 3</div>
-			<input class="checkRadio" id ="check-texture-3" type="radio" name = "radio">
-		</div>
-                <!-- Color Pickers for Tetrahedron Faces -->
-                <div class="param-panel horizontal-align mg-top-bottom">
-                <label for="color1">Color 1</label>
-                <input type="color" id="color1" value="#ff0040">
-                <label for="color2">Color 2</label>
-                <input type="color" id="color2" value="#00e5ff">
-                <label for="color3">Color 3</label>
-                <input type="color" id="color3" value="#3333ff">
-                <label for="color4">Color 4</label>
-                <input type="color" id="color4" value="#000000">
-                </div>
+		<!-- Color Customization Section -->
+<div class="param-panel vertical-align">
+    <div>
+        <label for="color1">Color 1</label>
+        <input type="color" id="color1" value="#ff0040">
+        <button id="toggle-color1">Toggle</button>
+    </div>
+    <div>
+        <label for="color2">Color 2</label>
+        <input type="color" id="color2" value="#00e5ff">
+        <button id="toggle-color2">Toggle</button>
+    </div>
+    <div>
+        <label for="color3">Color 3</label>
+        <input type="color" id="color3" value="#3333ff">
+        <button id="toggle-color3">Toggle</button>
+    </div>
+    <div>
+        <label for="color4">Color 4</label>
+        <input type="color" id="color4" value="#000000">
+        <button id="toggle-color4">Toggle</button>
+    </div>
+</div>
 		<!-- Animation start button -->
 		<input id="start-btn" type="button" value="Start Animation">
 	</div>
